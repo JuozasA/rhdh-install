@@ -53,12 +53,12 @@
 # clone the project into the current folder
 - name: Git checkout
   ansible.builtin.shell: |
-    git config --global user.name "user1 GitLab"
-    git config --global user.email "user1@demo.redhat.com"
-    git config --global user.password "Developerhub123!"
-    git clone 'https://gitlab-gitlab.{{ OCP_BASE }}/rhdh/software-templates.git'
+    git -c http.sslVerify=false config --global user.name "user1 GitLab"
+    git -c http.sslVerify=false config --global user.email "user1@demo.redhat.com"
+    git -c http.sslVerify=false config --global user.password "Developerhub123!"
+    git -c http.sslVerify=false clone 'https://gitlab-gitlab.{{ OCP_BASE }}/rhdh/software-templates.git'
     cd software-templates
-    git switch --force-create main
+    git -c http.sslVerify=false switch --force-create main
 
 # add the files
 - name: Creates ansible-templates cdirectory
@@ -122,8 +122,8 @@
 - name: Git commit and push
   ansible.builtin.shell: |
     cd software-templates
-    git config --global user.name "user1 GitLab"
-    git config --global user.email "user1@demo.redhat.com"
-    git add .
-    git commit -m "add README"
-    git push --set-upstream origin main
+    git -c http.sslVerify=false config --global user.name "user1 GitLab"
+    git -c http.sslVerify=false config --global user.email "user1@demo.redhat.com"
+    git -c http.sslVerify=false add .
+    git -c http.sslVerify=false commit -m "add README"
+    git -c http.sslVerify=false push --set-upstream origin main
