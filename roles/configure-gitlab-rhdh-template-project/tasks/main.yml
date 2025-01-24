@@ -64,7 +64,7 @@
   ansible.builtin.shell: git config --global http.sslVerify false
 
 - name: Git checkout
-  ansible.builtin.shell: git clone 'https://gitlab-gitlab.{{ OCP_BASE }}/rhdh/software-templates.git' ./
+  ansible.builtin.shell: git clone https://gitlab-gitlab.{{ OCP_BASE }}/rhdh/software-templates.git
 
 - name: Git checkout
   ansible.builtin.shell: cd software-templates && git switch --force-create main
