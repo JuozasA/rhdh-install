@@ -63,8 +63,10 @@
 - name: Git checkout
   ansible.builtin.shell: git config --global http.sslVerify false
 
-- name: Git checkout
-  ansible.builtin.shell: git clone https://gitlab-gitlab.{{ OCP_BASE }}/rhdh/software-templates.git
+- name: Clone a repo with separate git directory
+  ansible.builtin.git:
+    repo: 'https://gitlab-gitlab.{{ OCP_BASE }}/rhdh/software-templates.git'
+    dest: ./
 
 - name: Git checkout
   ansible.builtin.shell: cd software-templates && git switch --force-create main
