@@ -15,13 +15,13 @@
   delay: 10
   until: r_liveness.status == 200
 
-- name: Generate root user personal token
-  shell: |
-    POD=$(oc get pod -l app=gitlab -n gitlab --no-headers | awk '{print $1}')
-    oc exec $POD -n gitlab -- /bin/sh -c /scripts/create-root-pat.sh
-    ROOT_PAT=$(oc exec $POD -n gitlab -- /bin/sh -c "cat /tmp/root.pat")
-    oc delete secret root-user-personal-token -n gitlab --ignore-not-found
-    oc create secret generic root-user-personal-token --from-literal=token=$ROOT_PAT -n gitlab
+#- name: Generate root user personal token
+#  shell: |
+#    oc exec $POD -n gitlab -- /bin/sh -c /scripts/create-root-pat.sh
+#    POD=$(oc get pod -l app=gitlab -n gitlab --no-headers | awk '{print $1}')
+#    ROOT_PAT=$(oc exec $POD -n gitlab -- /bin/sh -c "cat /tmp/root.pat")
+#    oc delete secret root-user-personal-token -n gitlab --ignore-not-found
+#    oc create secret generic root-user-personal-token --from-literal=token=$ROOT_PAT -n gitlab
 
 - name: Retrieve root token
   kubernetes.core.k8s_info:
