@@ -52,14 +52,20 @@
 
 # clone the project into the current folder
 - name: Git checkout
-  ansible.builtin.shell: |
-    git config --global user.name "user1 GitLab";
-    git config --global user.email "user1@demo.redhat.com";
-    git config --global user.password "Developerhub123!";
-    git -c http.sslVerify=false clone 'https://gitlab-gitlab.{{ OCP_BASE }}/rhdh/software-templates.git';
-    cd software-templates;
-    git switch --force-create main;
+  ansible.builtin.shell: git config --global user.name "user1 GitLab"
 
+- name: Git checkout
+  ansible.builtin.shell: git config --global user.email "user1@demo.redhat.com"
+
+- name: Git checkout
+  ansible.builtin.shell: git config --global user.password "Developerhub123!"
+
+- name: Git checkout
+  ansible.builtin.shell: git -c http.sslVerify=false clone 'https://gitlab-gitlab.{{ OCP_BASE }}/rhdh/software-templates.git'
+
+- name: Git checkout
+  ansible.builtin.shell: cd software-templates && git switch --force-create main
+    
 # add the files
 - name: Creates ansible-templates cdirectory
   ansible.builtin.file:
