@@ -40,9 +40,9 @@
         kind: ClusterRole
         name: admin
 
-- name: add privileged scc to gitlab user
-  ansible.builtin.shell:
-    cmd: oc adm policy add-scc-to-user privileged system:serviceaccount:gitlab:gitlab   
+#- name: add privileged scc to gitlab user
+ # ansible.builtin.shell:
+  #  cmd: oc adm policy add-scc-to-user privileged system:serviceaccount:gitlab:gitlab   
         
 - name: Install gitlab-postgresql
   kubernetes.core.k8s:
