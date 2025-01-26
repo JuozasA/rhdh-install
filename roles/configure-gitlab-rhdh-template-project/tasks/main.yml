@@ -65,7 +65,7 @@
 
 - name: Clone a repo with separate git directory
   ansible.builtin.git:
-    repo: 'https://{{ githubuser | urlencode }}:{{ githubpassword | urlencode | replace ('/', '%2f') }}@gitlab-gitlab.{{ OCP_BASE }}/rhdh/software-templates.git'
+    repo: 'https://{{ githubuser | urlencode }}:{{ githubpassword | urlencode }}@gitlab-gitlab.{{ OCP_BASE }}/rhdh/software-templates.git'
     dest: '{{ playbook_dir }}'
 
 - name: Git checkout
