@@ -66,7 +66,7 @@
 - name: Clone a repo with separate git directory
   ansible.builtin.git:
     repo: 'https://gitlab-gitlab.{{ OCP_BASE }}/rhdh/software-templates.git'
-    dest: ./
+    dest: '{{ playbook_dir }}'
 
 - name: Git checkout
   ansible.builtin.shell: cd software-templates && git switch --force-create main
@@ -74,7 +74,7 @@
 # add the files
 - name: Creates ansible-templates cdirectory
   ansible.builtin.file:
-    path: software-templates/ansible-templates
+    path: /tmp/software-templates/ansible-templates
     state: directory
 
 - name: Creates catalog-info directory
