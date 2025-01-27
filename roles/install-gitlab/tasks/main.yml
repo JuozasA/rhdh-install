@@ -90,8 +90,8 @@
       status: true
 
 
-#- name: Install techdocs runner
-#  kubernetes.core.k8s:
-#    state: present
-#    src: techdocs-runner.yaml
+- name: Install techdocs runner
+  kubernetes.core.k8s:
+    state: present
+    src: techdocs-runner.yaml
 
