@@ -3,12 +3,12 @@ apiVersion: apps/v1
 metadata:
   name: techdocs-runner-runner
   namespace: gitlab
-  ownerReferences:
-    - apiVersion: apps.gitlab.com/v1beta2
-      kind: Runner
-      name: techdocs-runner
-      controller: true
-      blockOwnerDeletion: true
+#  ownerReferences:
+#    - apiVersion: apps.gitlab.com/v1beta2
+#      kind: Runner
+#      name: techdocs-runner
+#      controller: true
+#      blockOwnerDeletion: true
   labels:
     app.kubernetes.io/component: runner
     app.kubernetes.io/instance: techdocs-runner-runner
